@@ -1,0 +1,46 @@
+
+<section data-ng-controller="ContactController" >
+<div ng-hide="showContact">
+    Search : <input type="text" ng-model="search">
+   <br><a  class="btn btn-primary btn-small" ng-click="createContact()">Add Contact</a>
+   <br><br>
+     <table class="table table-striped table-bordered">
+        <thead>
+        <tr >
+           <th >FirstName</th>
+
+           <th >LastName</th>
+
+          <th >Email</th>
+          <th >Email</th>
+        </tr>
+        </thead>
+           <tbody  >
+            <tr data-ng-repeat="contact in Contacts | filter:search">
+                <td  >{{contact.firstname}}</td>
+                <td >{{contact.lastname}}</td>
+                <td > {{contact.email}}</td>
+                <td> <a  class="btn btn-primary btn-small" ng-click="editContact(contact)">Edit </a>
+<a  class="btn btn-primary btn-small" ng-click="removeContact(contact)">Remove </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+</div>
+    <div ng-show="showContact">
+         <div class="form-group">  <input type="text" ng-model="contact.firstname"  class="form-control" placeholder="FirstName"/></div>
+          <div class="form-group"><input type="text" ng-model="contact.lastname"  class="form-control" placeholder="LastName"/></div>
+          
+           <div class="form-group"> <input type="text" ng-model="contact.address1"  class="form-control" placeholder="Address1"/></div>   
+            <div class="form-group"> <input type="text" ng-model="contact.address2"  class="form-control" placeholder="Address1"/></div>   
+             <div class="form-group"> <input type="text" ng-model="contact.postcode"  class="form-control" placeholder="Postcode"/></div>   
+              <div class="form-group"> <input type="text" ng-model="contact.mobile"  class="form-control" placeholder="Mobile"/></div>   
+               <div class="form-group"> <input type="text" ng-model="contact.phone"  class="form-control" placeholder="Phone"/></div>  
+                <div class="form-group"> <input type="text" ng-model="contact.email"  class="form-control" placeholder="Email"/></div> 
+<a  class="btn btn-primary btn-small" ng-click="saveContact()">Submit </a>
+            </div>         
+      
+</section>
+
+
